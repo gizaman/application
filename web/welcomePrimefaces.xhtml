@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form >
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                 <h1 class="title ui-widget-header ui-corner-all">Welcome to PrimeFaces ShowCase</h1>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    <h1 class="title ui-widget-header ui-corner-all">Welcome to PrimeFaces ShowCase</h1>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="false">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+                
+                       <p:layoutUnit position="east" size="175" header="Right" collapsible="false">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    
+                    
+                    <!--<p:dialog fitViewport="center"/>-->
+                    
+                    <h:form >
+    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
+        <p:messages id="messages" />
+ 
+        <h:panelGrid columns="4" cellpadding="5">
+            <h:outputLabel for="txt1" value="Check in Date" />
+            <p:inputText id="txt1" value="#{searchView.text1}" required="true" label="Text 1">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="txt1" />
+            <h:outputText value="#{searchView.text1}" />
+ 
+            <h:outputLabel for="txt2" value="Check Out Date " />
+            <h:selectOneMenu id="txt2" value="#{searchView.text2}" required="true" label="Text 2">
+                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="Option 1" itemValue="1" />
+                <f:selectItem itemLabel="Option 2" itemValue="2" />
+                <f:selectItem itemLabel="Option 3" itemValue="3" />
+            </h:selectOneMenu>
+            <p:message for="@previous" />
+            <h:outputText value="#{searchView.text2}" />
+        </h:panelGrid>
+    </p:panel>
+ 
+    <h:panelGrid columns="2">
+        <p:commandButton process="@parent:@parent" update="@form" value="submit" />
+        <p:commandButton process="@form:@child(1):txt1" update="@form" value="Search Hotel" />
+    </h:panelGrid>
+                        </h:form>
+
+                    
+                    Welcome to PrimeFaces
+                </p:layoutUnit>
+
+            </p:layout>
+</h:form>
+        </h:body>
+
+    </f:view>
+</html>
+
